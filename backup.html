@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenEngineeringHub — Backup deck</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ========================================
+           SECTION DIVIDER 03 — BACKUP
+           ======================================== -->
+      <section id="divider-3" class="section-divider" data-state="is-section-divider">
+        <h1>Under the <span class="hl">hood.</span><br>For the <span class="hl">curious.</span></h1>
+        <p>// stack · quality · roadmap · the ask</p>
+        <p class="slide-id">section_03 // <span class="hl">backup</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE B1 — TECH STACK
+           ======================================== -->
+      <section id="tech-stack" data-kicker="slide_b1 // architecture_stack">
+        <h2>Architecture &amp; tech stack</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 26px;">
+            <div>
+              <p class="kicker">// layer :: technology</p>
+              <table style="font-size: 12pt;">
+                <tbody>
+                  <tr><td><strong class="hl">Backend</strong></td><td>FastAPI · Python 3.12+ · SQLAlchemy · Alembic</td></tr>
+                  <tr><td><strong class="hl">Frontend</strong></td><td>Next.js 15 · React 19 · TypeScript · Tailwind</td></tr>
+                  <tr><td><strong class="hl">AI Runtime</strong></td><td>CopilotKit (AG-UI) · litellm</td></tr>
+                  <tr><td><strong class="hl">Database</strong></td><td>PostgreSQL + TimescaleDB + pgvector</td></tr>
+                  <tr><td><strong class="hl">Queue/Cache</strong></td><td>Redis · Taskiq (async broker)</td></tr>
+                  <tr><td><strong class="hl">Observability</strong></td><td>OpenTelemetry · Prometheus · structlog</td></tr>
+                  <tr><td><strong class="hl">Deployment</strong></td><td>Docker Compose · Electron (macOS)</td></tr>
+                </tbody>
+              </table>
+              <p style="font-size: 11pt; color: var(--text-dim); margin-top: 14px;">// LLM provider abstracted via <code>litellm</code>. Swap OpenAI, Azure, Anthropic, or local models without code changes.</p>
+            </div>
+
+            <div>
+              <p class="kicker">// system :: topology</p>
+              <pre class="ascii-diagram" style="font-size: 9.5pt; line-height: 1.35; padding: 14px 16px;">   ┌─────────┐   ┌─────────┐   ┌─────────┐
+   │ Next.js │   │Electron │   │  Admin  │
+   │   Web   │   │  macOS  │   │  Panel  │
+   └────┬────┘   └────┬────┘   └────┬────┘
+        └─────────────┼─────────────┘
+                      │ HTTPS / SSE
+             ┌────────▼────────┐        ┌──────────┐
+             │     FastAPI     │ ─────► │ <span class="hl">litellm</span>  │
+             │  ┌───────────┐  │        │  GPT-4o  │
+             │  │  Agents   │  │        └──────────┘
+             │  │ Registry  │  │
+             │  └───────────┘  │
+             └────────┬────────┘
+                      │
+       ┌──────────────┼──────────────┐
+       │              │              │
+  ┌────▼─────┐   ┌────▼────┐   ┌─────▼─────┐
+  │ <span class="hl">Postgres</span> │   │  Redis  │   │  Taskiq   │
+  │+pgvector │   │  cache  │   │  workers  │
+  │+BM25/FTS │   │  broker │   │(sync · wb)│
+  │ +graph   │   └─────────┘   └─────┬─────┘
+  └──────────┘                       │
+                     ┌───────────────┼───────────────┐
+                ┌────▼────┐     ┌────▼────┐     ┌────▼────┐
+                │  Jira   │     │ GitHub  │     │  Zuul   │
+                │ Conflu. │     │ Gerrit  │     │Codebeam.│
+                └─────────┘     └─────────┘     └─────────┘</pre>
+            </div>
+          </div>
+        </div>
+        <p class="slide-id">stack // <span class="hl">b1</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE B2 — QUALITY SECURITY PERFORMANCE
+           ======================================== -->
+      <section id="quality" data-kicker="slide_b2 // quality_security_perf">
+        <h2>Quality, security &amp; performance</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+            <div>
+              <p class="kicker-accent">// observability</p>
+              <table style="font-size: 11pt;">
+                <thead><tr><th>Tracked</th><th>Why</th></tr></thead>
+                <tbody>
+                  <tr><td>API p50/95/99</td><td>SLA</td></tr>
+                  <tr><td>LLM tokens</td><td>cost ctrl</td></tr>
+                  <tr><td>Thumbs up/down</td><td>quality</td></tr>
+                  <tr><td>Chunks used/retrieved</td><td>tune pipe</td></tr>
+                  <tr><td>Connector sync</td><td>staleness</td></tr>
+                  <tr><td>Golden regress</td><td>&gt;5% alerts</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <p class="kicker-accent" style="color: var(--success);">// security</p>
+              <ul style="font-size: 12pt;">
+                <li><strong>Credentials:</strong> AES-256-GCM at rest; never in logs/prompts</li>
+                <li><strong>Isolation:</strong> <code>workspace_id</code> + <code>source_project_id</code> scoping</li>
+                <li><strong>Auth:</strong> JWT (24h) · pluggable SSO/IAM</li>
+                <li><strong>LLM:</strong> zero-data-retention agreement</li>
+                <li><strong>Write-back:</strong> risk-level HITL enforcement</li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="kicker-accent" style="color: var(--iris);">// performance</p>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="display: flex; justify-content: space-between; padding: 8px 14px; background: var(--accent-soft); border-radius: 2px;">
+                  <p style="font-size: 12pt; margin: 0;">API (non-LLM)</p>
+                  <p style="font-size: 12pt; margin: 0; color: var(--accent); font-weight: 700;">&lt; 200ms p95</p>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 14px; background: var(--accent-soft); border-radius: 2px;">
+                  <p style="font-size: 12pt; margin: 0;">Semantic search</p>
+                  <p style="font-size: 12pt; margin: 0; color: var(--accent); font-weight: 700;">&lt; 500ms p95</p>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 14px; background: var(--accent-soft); border-radius: 2px;">
+                  <p style="font-size: 12pt; margin: 0;">Chat first-token</p>
+                  <p style="font-size: 12pt; margin: 0; color: var(--accent); font-weight: 700;">&lt; 3s p95</p>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 14px; background: var(--accent-soft); border-radius: 2px;">
+                  <p style="font-size: 12pt; margin: 0;">Agent response</p>
+                  <p style="font-size: 12pt; margin: 0; color: var(--accent); font-weight: 700;">&lt; 45s p95</p>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 14px; background: var(--success-soft); border-radius: 2px;">
+                  <p style="font-size: 12pt; margin: 0;">Concurrent users</p>
+                  <p style="font-size: 12pt; margin: 0; color: var(--success); font-weight: 700;">15 + buffer</p>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 14px; background: var(--success-soft); border-radius: 2px;">
+                  <p style="font-size: 12pt; margin: 0;">Uptime</p>
+                  <p style="font-size: 12pt; margin: 0; color: var(--success); font-weight: 700;">≥ 99%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="slide-id">quality // <span class="hl">b2</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE B3 — ROADMAP
+           ======================================== -->
+      <section id="roadmap" data-kicker="slide_b3 // roadmap_status">
+        <h2>Roadmap &amp; status</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+            <div class="feature-card" style="border-left: 2px solid var(--success);">
+              <p class="kicker-accent" style="color: var(--success);">// wave_01</p>
+              <h3>Foundation &amp; triage</h3>
+              <ul style="margin-top: 8px; font-size: 11pt;">
+                <li>Jira / Confluence</li>
+                <li>Semantic search pipeline</li>
+                <li>Defect Analysis agent</li>
+                <li>Chat UI · workspaces</li>
+                <li>Auth · Electron macOS</li>
+              </ul>
+              <p class="status-pill status-shipped" style="margin-top: 10px;">● shipped</p>
+            </div>
+
+            <div class="feature-card" style="border-left: 2px solid var(--success);">
+              <p class="kicker-accent" style="color: var(--success);">// wave_02</p>
+              <h3>Code intelligence</h3>
+              <ul style="margin-top: 8px; font-size: 11pt;">
+                <li>GitHub / Gerrit</li>
+                <li>Codebeamer / Zuul</li>
+                <li>Code Review agent</li>
+                <li>URL ingestion</li>
+                <li>Tool config UI</li>
+              </ul>
+              <p class="status-pill status-shipped" style="margin-top: 10px;">● shipped</p>
+            </div>
+
+            <div class="feature-card" style="border-left: 2px solid var(--warn);">
+              <p class="kicker-accent" style="color: var(--warn);">// wave_03</p>
+              <h3>Deep analysis</h3>
+              <ul style="margin-top: 8px; font-size: 11pt;">
+                <li>DLT log processing</li>
+                <li>Full Defect Analysis</li>
+                <li>PO Analytics agent</li>
+                <li>Admin dashboard</li>
+                <li>Golden dataset eval</li>
+              </ul>
+              <p class="status-pill status-progress" style="margin-top: 12px;">◐ in progress</p>
+            </div>
+
+            <div class="feature-card" style="border-left: 2px solid var(--iris);">
+              <p class="kicker-accent" style="color: var(--iris);">// future</p>
+              <h3>Compounding knowledge</h3>
+              <ul style="margin-top: 8px; font-size: 11pt;">
+                <li>Agent memory (L3a/b/c)</li>
+                <li>The Hive (L4)</li>
+                <li>Property graph</li>
+                <li>LightRAG · Graphiti</li>
+                <li>Webhook sync · local agent</li>
+              </ul>
+              <p class="status-pill status-planned" style="margin-top: 12px;">◌ planned</p>
+            </div>
+          </div>
+          <p style="font-size: 10pt; color: var(--text-dim); margin-top: 10px;">// target: <strong class="hl">one team (~15 users)</strong> · horizontal scale via stateless backend + task queue</p>
+        </div>
+        <p class="slide-id">roadmap // <span class="hl">b3</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE B4 — THE ASK
+           ======================================== -->
+      <section id="ask" data-kicker="slide_b4 // the_ask">
+        <h2>The ask</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px;">
+            <div>
+              <p class="kicker-accent">// for managers</p>
+              <div class="agent-card">
+                <h3>01 — Does the 6-layer model match your pain?</h3>
+                <p>If your team loses knowledge to fragmentation, attrition, and rediscovery, this is the architecture that solves it.</p>
+              </div>
+              <div class="agent-card">
+                <h3>02 — Which connectors matter most?</h3>
+                <p>We support 6 systems today. Which 2–3 would deliver the most value for a pilot?</p>
+              </div>
+              <div class="agent-card">
+                <h3>03 — Where would self-learning agents help most?</h3>
+                <p>Pick the domain with the most repeated triage, context-heavy workflows, or knowledge attrition.</p>
+              </div>
+            </div>
+
+            <div>
+              <p class="kicker-accent" style="color: var(--success);">// for developers</p>
+              <div class="agent-card" style="border-left-color: var(--success);">
+                <h3>01 — Try it</h3>
+                <p><code>docker compose up</code>. Connect a Jira project. Ask the Companion a question grounded in your actual data.</p>
+              </div>
+              <div class="agent-card" style="border-left-color: var(--success);">
+                <h3>02 — Extend it</h3>
+                <p>Add a connector. Customize an agent. Contribute a Hive skill.</p>
+              </div>
+              <div class="agent-card" style="border-left-color: var(--success);">
+                <h3>03 — Challenge it</h3>
+                <p>Run the golden dataset evaluation against your own domain data.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="slide-id">the_ask // <span class="hl">b4</span></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      view: 'linear',
+      scrollActivationWidth: null,
+      disableLayout: false
+    });
+  </script>
+</body>
+</html>

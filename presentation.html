@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenEngineeringHub — Engineering knowledge that compounds</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ========================================
+           TITLE
+           ======================================== -->
+      <section id="title">
+        <p class="title-prompt">[<span class="hl">oeh</span>] ~ <span class="hl">./init</span> --pitch --audience=eng</p>
+        <h1>Engineering<br>knowledge<br>that <span class="hl">compounds.</span></h1>
+        <p class="title-tagline">A multilayer knowledge platform with <span class="hl">self-learning AI agents</span> for engineering teams.</p>
+        <p class="title-sub">OpenEngineeringHub consolidates Jira, Confluence, GitHub, Gerrit,<br>Codebeamer and Zuul into task-scoped workspaces with four<br>specialized agents — every answer grounded, every claim cited.</p>
+        <p class="slide-id">open_engineering_hub // <span class="hl">01</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 1 — THE PAIN
+           ======================================== -->
+      <section id="pain" data-kicker="slide_01 // the_pain">
+        <h2>Knowledge evaporates. Every day. At scale.</h2>
+        <div class="content">
+          <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 14px;">Engineering teams in large enterprises suffer a compounding fragmentation problem existing tools don't solve.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;">
+            <div class="feature-card" style="padding: 14px 18px;">
+              <p class="kicker-accent" style="margin-bottom: 4px !important;">// problem_01</p>
+              <h3>Disconnected systems</h3>
+              <p>Jira, Confluence, GitHub, Gerrit, Codebeamer, Zuul. Context lives everywhere and nowhere.</p>
+            </div>
+            <div class="feature-card" style="padding: 14px 18px;">
+              <p class="kicker-accent" style="margin-bottom: 4px !important;">// problem_02</p>
+              <h3>Up to 40% of time lost to context assembly</h3>
+              <p>Engineers juggle dozens of tools and browser tabs to understand a single defect, requirement, or change.</p>
+            </div>
+            <div class="feature-card" style="padding: 14px 18px;">
+              <p class="kicker-accent" style="margin-bottom: 4px !important;">// problem_03</p>
+              <h3>Zero compounding</h3>
+              <p>A senior finds a root cause, closes the ticket, the insight evaporates. Next engineer starts from zero.</p>
+            </div>
+            <div class="feature-card" style="padding: 14px 18px;">
+              <p class="kicker-accent" style="margin-bottom: 4px !important;">// problem_04</p>
+              <h3>Knowledge walks out the door</h3>
+              <p>Attrition, reorgs, and handoffs erase months of accumulated understanding.</p>
+            </div>
+          </div>
+
+          <blockquote style="margin: 0;">
+            <p style="font-size: 16pt;">This isn't a tab-switching problem. It isn't a chatbot problem. It's a <strong>knowledge architecture</strong> problem — and no existing tool solves it.</p>
+          </blockquote>
+        </div>
+        <p class="slide-id">the_pain // <span class="hl">02</span></p>
+      </section>
+
+      <!-- ========================================
+           DIVIDER — THE ARCHITECTURE
+           ======================================== -->
+      <section id="divider-1" class="section-divider" data-state="is-section-divider">
+        <h1>The <span class="hl">architecture</span><br>is the product.</h1>
+        <p>// six layers · one substrate</p>
+        <p class="slide-id">section_01 // <span class="hl">03</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 2 — 6-LAYER KNOWLEDGE ARCHITECTURE
+           ======================================== -->
+      <section id="architecture" data-kicker="slide_02 // 6_layer_knowledge">
+        <h2>The solution: a 6-layer knowledge architecture</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start;">
+            <pre class="ascii-diagram" style="margin: 0; font-size: 9.5pt; padding: 12px 14px; line-height: 1.3;">┌──────────────────────┐
+│ <span class="hl">L6</span>  Workspace        │
+├──────────────────────┤
+│ <span class="hl">L5</span>  User Private     │
+├──────────────────────┤
+│ <span class="hl">L4</span>  Shared Hive      │
+├──────────────────────┤
+│ <span class="hl">L3</span>  Agent Memory     │
+│  ├ L3a  topic wiki   │
+│  ├ L3b  recall       │
+│  └ L3c  procedural   │
+├──────────────────────┤
+│ <span class="hl">L2</span>  Knowledge Store  │
+│     vec·BM25·graph   │
+├──────────────────────┤
+│ <span class="hl">L1</span>  Raw Artifacts    │
+│     tickets·PRs·logs │
+└──────────────────────┘</pre>
+            <div>
+              <p class="kicker" style="margin-bottom: 6px;">// each layer :: holds · writer · status</p>
+              <table style="font-size: 10.5pt;">
+                <thead><tr><th>Layer</th><th>Holds</th><th>Writer</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td><strong class="hl">L1</strong> Raw</td><td>tickets, pages, PRs, CLs</td><td>connectors</td><td><span class="check">● shipped</span></td></tr>
+                  <tr><td><strong class="hl">L2</strong> Store</td><td>keyword · semantic · graph</td><td>embed pipe</td><td><span class="check">●</span> <span class="partial">◐</span></td></tr>
+                  <tr><td><strong class="hl">L3a</strong> Memory</td><td>topic-indexed lessons</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L3b</strong> Recall</td><td>cross-session search</td><td>auto-saved</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L3c</strong> Skills</td><td>procedural workflows</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L4</strong> Hive</td><td>community skills</td><td>PR model</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L5</strong> Private</td><td>prefs, notes</td><td>user + agent</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L6</strong> Workspace</td><td>uploads, findings</td><td>user + agent</td><td><span class="check">● shipped</span></td></tr>
+                </tbody>
+              </table>
+              <p style="font-size: 10.5pt; color: var(--text-dim); margin-top: 10px; line-height: 1.45;">// lower layers system-managed. upper layers emerge from use. <span class="hl">ingested once, indexed many ways, accessible everywhere.</span></p>
+            </div>
+          </div>
+        </div>
+        <p class="slide-id">6_layer // <span class="hl">04</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 3 — MULTI-STRATEGY RETRIEVAL
+           ======================================== -->
+      <section id="retrieval" data-kicker="slide_03 // breakthrough_1">
+        <h2>Breakthrough #1 — multi-strategy retrieval</h2>
+        <div class="content">
+          <p class="text-lg" style="color: var(--text-dim); margin-bottom: 18px;">A single retrieval strategy always fails at something. OEH runs three — in parallel — and fuses the results.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
+            <div class="feature-card">
+              <p class="kicker-accent">// [ keyword ]</p>
+              <h3>PostgreSQL BM25</h3>
+              <p style="margin-bottom: 8px;">Error codes, identifiers, exact terms.</p>
+              <p style="font-size: 11pt; color: var(--text-muted); margin: 0;">> find error 0xDEAD in all Jira tickets</p>
+            </div>
+            <div class="feature-card" style="border-left: 2px solid var(--success);">
+              <p class="kicker-accent" style="color: var(--success);">// [ semantic ]</p>
+              <h3>pgvector embeddings</h3>
+              <p style="margin-bottom: 8px;">Conceptual similarity, natural language.</p>
+              <p style="font-size: 11pt; color: var(--text-muted); margin: 0;">> issues where display flickers on cold boot</p>
+            </div>
+            <div class="feature-card" style="border-left: 2px solid var(--iris);">
+              <p class="kicker-accent" style="color: var(--iris);">// [ graph ]</p>
+              <h3>Property graph</h3>
+              <p style="margin-bottom: 8px;">Relationships, traceability, multi-hop.</p>
+              <p style="font-size: 11pt; color: var(--text-muted); margin: 0;">> what requirements trace to this failing test?</p>
+            </div>
+          </div>
+
+          <pre class="ascii-diagram" style="margin-bottom: 14px;">   query ──► <span class="hl">BM25</span>  ──┐
+             <span class="hl">pgvec</span> ──┼──► Reciprocal Rank Fusion ──► merged results
+             <span class="hl">graph</span> ──┘</pre>
+
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+            <p style="font-size: 10.5pt; margin: 0;"><span class="check">●</span> BM25</p>
+            <p style="font-size: 10.5pt; margin: 0;"><span class="check">●</span> pgvector</p>
+            <p style="font-size: 10.5pt; margin: 0;"><span class="partial">◌</span> Property graph</p>
+            <p style="font-size: 10.5pt; margin: 0;"><span class="partial">◌</span> LightRAG</p>
+            <p style="font-size: 10.5pt; margin: 0;"><span class="partial">◌</span> Graphiti</p>
+          </div>
+        </div>
+        <p class="slide-id">retrieval // <span class="hl">05</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 4 — SELF-LEARNING AGENTS
+           ======================================== -->
+      <section id="learning" data-kicker="slide_04 // breakthrough_2">
+        <h2>Breakthrough #2 — agents that learn &amp; remember</h2>
+        <div class="content">
+          <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 12px;">The agents are <strong>not stateless chatbots</strong>. They learn. They remember. They get smarter.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+              <p class="kicker-accent" style="margin-bottom: 6px !important;">// L3a :: agent memory</p>
+              <h3 style="margin: 0 0 8px;">Topic-indexed knowledge base</h3>
+              <pre class="ascii-diagram" style="font-size: 9.5pt; margin-bottom: 8px; padding: 10px 12px; line-height: 1.3;">defect_analysis/ <span class="dim">(user: lena)</span>
+├── <span class="hl">_index.md</span>              <span class="dim">← always in ctx</span>
+├── vhal-binder-patterns.md
+├── dlt-log-parsing-lessons.md
+└── common-aaos-failure-modes.md</pre>
+              <ul style="font-size: 11.5pt; margin: 0;">
+                <li><strong>Always-loaded index</strong> — compact overview every turn</li>
+                <li><strong>On-demand topics</strong> — loaded when task matches</li>
+                <li><strong>Self-managed</strong> — agent writes, merges, archives</li>
+                <li><strong>Deterministic</strong> — no lossy LLM summarization; <code>[CONFLICT]</code> tags</li>
+              </ul>
+            </div>
+            <div>
+              <div class="agent-card" style="border-left-color: var(--success); padding: 12px 16px;">
+                <p class="kicker-accent" style="color: var(--success); margin-bottom: 4px !important;">// L3b :: cross-session recall</p>
+                <h3 style="font-size: 14pt;">Full-text search across past conversations</h3>
+                <p style="font-size: 11.5pt;">"Last time we looked at VHAL issues, root cause was always in the binder transaction layer."</p>
+              </div>
+              <div class="agent-card" style="border-left-color: var(--iris); margin-top: 8px; padding: 12px 16px;">
+                <p class="kicker-accent" style="color: var(--iris); margin-bottom: 4px !important;">// L3c :: procedural skills</p>
+                <h3 style="font-size: 14pt;">Reusable workflows from experience</h3>
+                <pre style="margin: 6px 0 0; font-size: 9.5pt; padding: 0; background: transparent; border: none; color: var(--text-2); line-height: 1.4;">skill: <span class="hl">DLT-VHAL-Triage</span>
+trigger: VHAL defect + DLT log
+steps:
+  01. parse DLT for VHAL PIDs
+  02. filter err-level in 5s window
+  03. x-ref known failure modes
+  04. check Codebeamer reqs
+  05. emit root-cause report</pre>
+              </div>
+            </div>
+          </div>
+          <p style="font-size: 13pt; color: var(--text-dim); margin: 10px 0 0; padding: 8px 14px; border-left: 2px solid var(--accent); background: var(--accent-soft);">// After 3 months of use, the agent has seen <strong class="hl">200+ triage sessions</strong>. New team members get the benefit on day one.</p>
+        </div>
+        <p class="slide-id">self_learning // <span class="hl">06</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 5 — THE HIVE
+           ======================================== -->
+      <section id="hive" data-kicker="slide_05 // breakthrough_3">
+        <h2>Breakthrough #3 — the Hive</h2>
+        <div class="content">
+          <p class="text-lg" style="color: var(--text-dim); margin-bottom: 16px;">Individual learning is powerful. <strong>Shared learning is transformative.</strong> The Hive turns individual agent skills into organizational knowledge via a community PR model.</p>
+
+          <div style="display: flex; gap: 6px; align-items: stretch; justify-content: space-between; margin-bottom: 22px;">
+            <div class="flow-node" style="border-left-color: var(--text-muted);">
+              <p class="flow-label" style="color: var(--text-dim);">DRAFT</p>
+              <p class="flow-desc">agent discovers</p>
+            </div>
+            <span class="flow-arrow">──▸</span>
+            <div class="flow-node" style="border-left-color: var(--accent);">
+              <p class="flow-label">PRIVATE</p>
+              <p class="flow-desc">L3c skill</p>
+            </div>
+            <span class="flow-arrow">──▸</span>
+            <div class="flow-node" style="border-left-color: var(--iris);">
+              <p class="flow-label" style="color: var(--iris);">PROPOSED</p>
+              <p class="flow-desc">engineer submits</p>
+            </div>
+            <span class="flow-arrow">──▸</span>
+            <div class="flow-node" style="border-left-color: var(--warn);">
+              <p class="flow-label" style="color: var(--warn);">APPROVED</p>
+              <p class="flow-desc">privacy + review</p>
+            </div>
+            <span class="flow-arrow">──▸</span>
+            <div class="flow-node" style="border-left-color: var(--success);">
+              <p class="flow-label" style="color: var(--success);">PUBLISHED</p>
+              <p class="flow-desc">all agents gain it</p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px;">
+            <div class="feature-card">
+              <p class="kicker-accent">// gate_01</p>
+              <h3>Privacy scanning</h3>
+              <p>Regex-based credential &amp; PII detection before publish.</p>
+            </div>
+            <div class="feature-card" style="border-left: 2px solid var(--iris);">
+              <p class="kicker-accent" style="color: var(--iris);">// gate_02</p>
+              <h3>Applicability tags</h3>
+              <p>Tech stack, domain, project — agents load only relevant skills.</p>
+            </div>
+            <div class="feature-card" style="border-left: 2px solid var(--warn);">
+              <p class="kicker-accent" style="color: var(--warn);">// gate_03</p>
+              <h3>Relevance scoring</h3>
+              <p>Workspace context matched against tags; usage feedback ranks skills.</p>
+            </div>
+            <div class="feature-card" style="border-left: 2px solid var(--success);">
+              <p class="kicker-accent" style="color: var(--success);">// gate_04</p>
+              <h3>Provenance</h3>
+              <p>Every shared skill traces back to origin &amp; author.</p>
+            </div>
+          </div>
+
+          <p style="font-size: 12.5pt; color: var(--text-dim);">// <span class="hl">12 engineers × daily use</span> = dozens of verified patterns/month flowing into the Hive. Senior expertise scales without senior interrupts.</p>
+        </div>
+        <p class="slide-id">the_hive // <span class="hl">07</span></p>
+      </section>
+
+      <!-- ========================================
+           DIVIDER — IN PRACTICE
+           ======================================== -->
+      <section id="divider-2" class="section-divider" data-state="is-section-divider">
+        <h1>In <span class="hl">practice</span>.<br>Not in <span class="hl">theory.</span></h1>
+        <p>// a day in the life</p>
+        <p class="slide-id">section_02 // <span class="hl">08</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 6 — A DAY IN THE LIFE
+           ======================================== -->
+      <section id="day-in-life" data-kicker="slide_06 // day_in_life">
+        <h2>Lena triages a VHAL crash defect</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;">
+            <table style="font-size: 10.5pt;">
+              <thead><tr><th style="width: 24px;">#</th><th>What happens</th><th style="width: 54px;">Layer</th></tr></thead>
+              <tbody>
+                <tr><td class="hl"><strong>01</strong></td><td>Lena opens Defect Analysis agent with a Jira ticket</td><td><span class="hl">L1</span></td></tr>
+                <tr><td class="hl"><strong>02</strong></td><td>Agent retrieves related specs, past analyses, reqs</td><td><span class="hl">L2</span></td></tr>
+                <tr><td class="hl"><strong>03</strong></td><td>Recalls: "last 3 VHAL crashes were binder-related"</td><td><span class="hl">L3a</span></td></tr>
+                <tr><td class="hl"><strong>04</strong></td><td>Applies <code>DLT-VHAL-Triage</code> skill automatically</td><td><span class="hl">L3c</span></td></tr>
+                <tr><td class="hl"><strong>05</strong></td><td>Parses DLT log, x-references known failure modes</td><td><span class="hl">L1</span></td></tr>
+                <tr><td class="hl"><strong>06</strong></td><td>Root cause: binder deadlock in VHAL during cold boot</td><td><em>cited</em></td></tr>
+                <tr><td class="hl"><strong>07</strong></td><td>Proposes Jira comment with the analysis</td><td><em>HITL</em></td></tr>
+                <tr><td class="hl"><strong>08</strong></td><td>Lesson learned written to agent memory</td><td><span class="hl">L3a</span></td></tr>
+                <tr><td class="hl"><strong>09</strong></td><td>Lena promotes the triage skill to the Hive</td><td><span class="hl">L4</span></td></tr>
+              </tbody>
+            </table>
+            <div>
+              <div class="feature-card" style="border-left: 2px solid var(--danger); margin-bottom: 10px; padding: 12px 16px;">
+                <p class="kicker-accent" style="color: var(--danger); margin-bottom: 2px !important;">// without_oeh</p>
+                <h3 style="color: var(--danger); font-size: 14pt;">2–3 hours across 6 systems</h3>
+                <p style="font-size: 11pt;">Repeating work someone else did last month. No memory. Triage re-runs from scratch.</p>
+              </div>
+              <div class="feature-card" style="border-left: 2px solid var(--success); padding: 12px 16px;">
+                <p class="kicker-accent" style="color: var(--success); margin-bottom: 2px !important;">// with_oeh</p>
+                <h3 style="color: var(--success); font-size: 14pt;">15 minutes</h3>
+                <p style="font-size: 11pt;">Standing on the shoulders of every previous triage. Skill auto-applied. Memory auto-updated.</p>
+              </div>
+              <blockquote style="margin: 10px 0 0;">
+                <p style="font-size: 13pt;">Every artifact cited. Every claim linked. <strong>No hallucinations.</strong></p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <p class="slide-id">day_in_life // <span class="hl">09</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 7 — SPECIALIZED AGENTS
+           ======================================== -->
+      <section id="agents" data-kicker="slide_07 // specialized_agents">
+        <h2>Four purpose-built agents</h2>
+        <div class="content">
+          <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 14px;">All four consume the same 6-layer architecture. Every response grounded. Every claim cited.</p>
+
+          <table style="margin-bottom: 18px;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Agent</th>
+                <th style="width: 42%;">What it does</th>
+                <th style="width: 22%;">Layers used</th>
+                <th style="width: 14%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong class="hl">Contextual Companion</strong></td>
+                <td>Chat grounded in workspace data with inline citations</td>
+                <td><code>L1 L2 L3a L5 L6</code></td>
+                <td><span class="status-pill status-shipped">shipped</span></td>
+              </tr>
+              <tr>
+                <td><strong class="hl">Defect Analysis</strong></td>
+                <td>Root-cause triage across tickets, specs, logs, history</td>
+                <td><code>L1 L2 L3a L3c L4</code></td>
+                <td><span class="status-pill status-progress">wave 3</span></td>
+              </tr>
+              <tr>
+                <td><strong class="hl">Code Review</strong></td>
+                <td>Reviews PRs/CLs with full requirement + architecture context</td>
+                <td><code>L1 L2 L3a L4 L6</code></td>
+                <td><span class="status-pill status-shipped">shipped</span></td>
+              </tr>
+              <tr>
+                <td><strong class="hl">PO Analytics</strong></td>
+                <td>Natural-language Jira analytics: time-in-state, ping-pong</td>
+                <td><code>L1 L2 L3a</code></td>
+                <td><span class="status-pill status-progress">wave 3</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; font-size: 11.5pt;">
+            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--accent);"><strong class="hl">// grounded.</strong> &nbsp;Every response cites sources inline. No hallucination.</p>
+            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--iris);"><strong class="iris">// configurable.</strong> &nbsp;Mind-map tool UI. Risk tiers. Admin constraints.</p>
+            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--warn);"><strong class="warn">// write-back.</strong> &nbsp;Jira · Confluence · GitHub · Gerrit — with HITL.</p>
+          </div>
+        </div>
+        <p class="slide-id">agents // <span class="hl">10</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 8 — CONNECTORS & TOOLS
+           ======================================== -->
+      <section id="connectors" data-kicker="slide_08 // connectors_tools">
+        <h2>95 tools across 6 engineering systems</h2>
+        <div class="content">
+          <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 26px;">
+            <div>
+              <p class="kicker">// connector :: tool inventory</p>
+              <table style="font-size: 12pt;">
+                <thead>
+                  <tr>
+                    <th>Connector</th>
+                    <th style="text-align: right;">Tools</th>
+                    <th style="text-align: right;">Read</th>
+                    <th style="text-align: right;">Write</th>
+                    <th style="text-align: right;">Destruct.</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong class="hl">Jira</strong></td><td style="text-align: right;">13</td><td style="text-align: right;">10</td><td style="text-align: right;">2</td><td style="text-align: right;">1</td><td><span class="check">●</span></td></tr>
+                  <tr><td><strong class="hl">Confluence</strong></td><td style="text-align: right;">12</td><td style="text-align: right;">8</td><td style="text-align: right;">2</td><td style="text-align: right;">2</td><td><span class="check">●</span></td></tr>
+                  <tr><td><strong class="hl">GitHub</strong></td><td style="text-align: right;">34</td><td style="text-align: right;">19</td><td style="text-align: right;">8</td><td style="text-align: right;">7</td><td><span class="check">●</span></td></tr>
+                  <tr><td><strong class="hl">Gerrit</strong></td><td style="text-align: right;">24</td><td style="text-align: right;">14</td><td style="text-align: right;">5</td><td style="text-align: right;">5</td><td><span class="check">●</span></td></tr>
+                  <tr><td><strong class="hl">Codebeamer</strong></td><td style="text-align: right;">8</td><td style="text-align: right;">5</td><td style="text-align: right;">2</td><td style="text-align: right;">1</td><td><span class="check">●</span></td></tr>
+                  <tr><td><strong class="hl">Zuul</strong></td><td style="text-align: right;">4</td><td style="text-align: right;">4</td><td style="text-align: right;">—</td><td style="text-align: right;">—</td><td><span class="check">●</span></td></tr>
+                  <tr style="border-top: 1px solid var(--line-strong);"><td><strong>total</strong></td><td style="text-align: right;"><strong class="hl">95</strong></td><td style="text-align: right;">60</td><td style="text-align: right;">19</td><td style="text-align: right;">16</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <p class="kicker">// risk-level human-in-the-loop</p>
+              <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px; padding: 12px 16px; background: var(--success-soft); border-radius: 2px; border-left: 2px solid var(--success);">
+                <span class="risk-badge risk-low">LOW</span>
+                <div>
+                  <p style="font-size: 13pt; margin: 0; color: var(--text);"><strong>read</strong> — direct execution</p>
+                  <p style="font-size: 11pt; color: var(--text-dim); margin: 2px 0 0;">No friction; agent reads and cites.</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 10px; padding: 12px 16px; background: var(--warn-soft); border-radius: 2px; border-left: 2px solid var(--warn);">
+                <span class="risk-badge risk-medium">MED</span>
+                <div>
+                  <p style="font-size: 13pt; margin: 0; color: var(--text);"><strong>write</strong> — agent suggests, user confirms</p>
+                  <p style="font-size: 11pt; color: var(--text-dim); margin: 2px 0 0;">Post comment, create ticket, reply.</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: var(--danger-soft); border-radius: 2px; border-left: 2px solid var(--danger);">
+                <span class="risk-badge risk-high">HIGH</span>
+                <div>
+                  <p style="font-size: 13pt; margin: 0; color: var(--text);"><strong>destructive</strong> — explicit approval + diff</p>
+                  <p style="font-size: 11pt; color: var(--text-dim); margin: 2px 0 0;">Delete, force-push, overwrite.</p>
+                </div>
+              </div>
+
+              <p style="font-size: 11.5pt; color: var(--text-dim); margin-top: 16px;">// <strong>inverted architecture:</strong> connectors declare tools → Registry indexes → agents inject at runtime. Adding a connector auto-exposes its tools to every agent.</p>
+            </div>
+          </div>
+        </div>
+        <p class="slide-id">connectors // <span class="hl">11</span></p>
+      </section>
+
+      <!-- ========================================
+           SLIDE 9 — COMPETITIVE LANDSCAPE
+           ======================================== -->
+      <section id="competitive" data-kicker="slide_09 // competitive_landscape">
+        <h2>Where OEH sits in the landscape</h2>
+        <div class="content">
+          <table style="font-size: 11pt;">
+            <thead>
+              <tr>
+                <th style="width: 24%;">Capability</th>
+                <th style="width: 24%;">Generic RAG Chatbots</th>
+                <th style="width: 24%;">IDE Copilots</th>
+                <th style="width: 28%;">OpenEngineeringHub</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Multi-source integration</td>
+                <td><span class="cross">✗</span> single source</td>
+                <td><span class="cross">✗</span> code only</td>
+                <td><span class="check">✓</span> 6 systems · 95 tools</td>
+              </tr>
+              <tr>
+                <td>Retrieval strategy</td>
+                <td>semantic only</td>
+                <td>keyword / AST</td>
+                <td><span class="check">✓</span> keyword + semantic + graph</td>
+              </tr>
+              <tr>
+                <td>Agent memory</td>
+                <td><span class="cross">✗</span> stateless</td>
+                <td><span class="cross">✗</span> stateless</td>
+                <td><span class="check">✓</span> persistent, self-managed</td>
+              </tr>
+              <tr>
+                <td>Knowledge sharing</td>
+                <td><span class="cross">✗</span> none</td>
+                <td><span class="cross">✗</span> none</td>
+                <td><span class="check">✓</span> Hive with PR model</td>
+              </tr>
+              <tr>
+                <td>Write-back actions</td>
+                <td><span class="cross">✗</span> read-only</td>
+                <td>code completion</td>
+                <td><span class="check">✓</span> Jira · Conf · GH · Gerrit</td>
+              </tr>
+              <tr>
+                <td>Domain-specific agents</td>
+                <td>generic chat</td>
+                <td>code completion</td>
+                <td><span class="check">✓</span> 4 specialized agents</td>
+              </tr>
+              <tr>
+                <td>Source citations</td>
+                <td><span class="partial">◐</span> sometimes</td>
+                <td><em>n/a</em></td>
+                <td><span class="check">✓</span> always, inline, verifiable</td>
+              </tr>
+              <tr>
+                <td>Setup / time-to-value</td>
+                <td><span class="check">✓</span> minutes</td>
+                <td><span class="check">✓</span> minutes</td>
+                <td><span class="partial">◐</span> needs connector config</td>
+              </tr>
+              <tr>
+                <td>Language breadth</td>
+                <td><span class="check">✓</span> any</td>
+                <td><span class="check">✓</span> broad</td>
+                <td><span class="partial">◐</span> engineering-focused</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size: 12pt; color: var(--text-dim); margin-top: 12px; padding: 10px 14px; border-left: 2px solid var(--accent); background: var(--accent-soft);">// <strong style="color: var(--text);">We don't compete on speed-to-setup or language breadth.</strong> We compete on <span class="hl">compounding knowledge</span>, <span class="hl">organizational memory</span>, and <span class="hl">deep multi-source integration</span>. Complementary, not competing.</p>
+        </div>
+        <p class="slide-id">landscape // <span class="hl">12</span></p>
+      </section>
+
+      <!-- ========================================
+           SUMMARY / CLOSING
+           ======================================== -->
+      <section id="closing" class="section-divider" data-state="is-section-divider">
+        <h1 style="font-size: 48pt;">Engineers solve problems.<br>Not <span class="hl">hunt for context.</span></h1>
+        <div style="margin-top: 20px;">
+          <p style="font-family: var(--mono-font); font-size: 11pt; color: var(--text-dim); text-transform: none; letter-spacing: 0; margin: 0 0 14px; max-width: 860px; line-height: 1.5;">
+            // problem · knowledge fragments across 6+ systems, doesn't compound<br>
+            // solution · 6-layer architecture · multi-strategy retrieval<br>
+            // differentiator · self-learning agents + Hive sharing
+          </p>
+          <div style="display: flex; gap: 8px; margin-top: 12px;">
+            <div class="stat-box" style="padding: 8px 14px;">
+              <p class="stat-number" style="font-size: 18pt; margin-bottom: 2px;">6</p>
+              <p class="stat-label">layers</p>
+            </div>
+            <div class="stat-box" style="padding: 8px 14px;">
+              <p class="stat-number" style="font-size: 18pt; margin-bottom: 2px;">4</p>
+              <p class="stat-label">agents</p>
+            </div>
+            <div class="stat-box" style="padding: 8px 14px;">
+              <p class="stat-number" style="font-size: 18pt; margin-bottom: 2px;">95</p>
+              <p class="stat-label">tools</p>
+            </div>
+            <div class="stat-box" style="padding: 8px 14px;">
+              <p class="stat-number" style="font-size: 18pt; margin-bottom: 2px;">6</p>
+              <p class="stat-label">connectors</p>
+            </div>
+          </div>
+        </div>
+        <p class="slide-id">// <span class="hl">open_engineering_hub</span> // <span class="hl">end</span></p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0,
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      hash: true,
+      transition: 'slide',
+      center: false,
+      view: 'linear',
+      scrollActivationWidth: null,
+      disableLayout: false
+    });
+  </script>
+</body>
+</html>

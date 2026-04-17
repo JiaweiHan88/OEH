@@ -1,0 +1,5 @@
+node_modules/
+_shots/
+screenshots/
+output.pdf
+*.log
