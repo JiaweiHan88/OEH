@@ -83,41 +83,46 @@
       <section id="architecture" data-kicker="slide_02 // 6_layer_knowledge">
         <h2>The solution: a 6-layer knowledge architecture</h2>
         <div class="content">
-          <div style="display: grid; grid-template-columns: 300px 1fr; gap: 24px; align-items: start;">
-            <pre class="ascii-diagram" style="margin: 0; font-size: 9.5pt; padding: 12px 14px; line-height: 1.3;">┌──────────────────────┐
-│ <span class="hl">L6</span>  Workspace        │
-├──────────────────────┤
-│ <span class="hl">L5</span>  User Private     │
-├──────────────────────┤
-│ <span class="hl">L4</span>  Shared Hive      │
-├──────────────────────┤
-│ <span class="hl">L3</span>  Agent Memory     │
-│  ├ L3a  topic wiki   │
-│  ├ L3b  recall       │
-│  └ L3c  procedural   │
-├──────────────────────┤
-│ <span class="hl">L2</span>  Knowledge Store  │
-│     vec·BM25·graph   │
-├──────────────────────┤
-│ <span class="hl">L1</span>  Raw Artifacts    │
-│     tickets·PRs·logs │
-└──────────────────────┘</pre>
-            <div>
+          <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: stretch;">
+            <pre class="ascii-diagram" style="margin: 0; font-size: 9.5pt; padding: 12px 14px; line-height: 1.3; display: flex; flex-direction: column; justify-content: center;">
+ <span style="color: var(--text-muted); font-size: 8.5pt;">  ▲ system-managed</span>
+┌─────────────────────────┐
+│ <span class="hl">L1</span>  Raw Artifacts        │
+│     Jira·Conf·GH·Gerrit │
+├─────────────────────────┤
+│ <span class="hl">L2</span>  Knowledge Store      │
+│     vec · BM25 · graph  │
+╞═════════════════════════╡
+│ <span class="hl">L4</span>  Shared Hive          │
+├─────────────────────────┤
+│ <span class="hl">L3</span>  Agent Memory         │
+│  ├ L3a  topic wiki      │
+│  ├ L3b  recall          │
+│  └ L3c  procedural      │
+├─────────────────────────┤
+│ <span class="hl">L5</span>  User Private         │
+├─────────────────────────┤
+│ <span class="hl">L6</span>  Workspace            │
+└─────────────────────────┘
+ <span style="color: var(--text-muted); font-size: 8.5pt;">  ▼ user-managed</span></pre>
+            <div style="display: flex; flex-direction: column;">
               <p class="kicker" style="margin-bottom: 6px;">// each layer :: holds · writer · status</p>
-              <table style="font-size: 10.5pt;">
+              <table style="font-size: 10.5pt; flex: 1;">
                 <thead><tr><th>Layer</th><th>Holds</th><th>Writer</th><th>Status</th></tr></thead>
                 <tbody>
+                  <tr style="border-bottom: 1px solid var(--line-strong);"><td colspan="4" style="font-size: 9pt; color: var(--text-muted); padding: 2px 0; letter-spacing: 0.5px;">// SYSTEM-MANAGED</td></tr>
                   <tr><td><strong class="hl">L1</strong> Raw</td><td>tickets, pages, PRs, CLs</td><td>connectors</td><td><span class="check">● shipped</span></td></tr>
                   <tr><td><strong class="hl">L2</strong> Store</td><td>keyword · semantic · graph</td><td>embed pipe</td><td><span class="check">●</span> <span class="partial">◐</span></td></tr>
+                  <tr style="border-bottom: 1px solid var(--line-strong);"><td colspan="4" style="font-size: 9pt; color: var(--text-muted); padding: 2px 0; letter-spacing: 0.5px;">// USER-MANAGED</td></tr>
+                  <tr><td><strong class="hl">L4</strong> Hive</td><td>community skills</td><td>PR model</td><td><span class="partial">◌ planned</span></td></tr>
                   <tr><td><strong class="hl">L3a</strong> Memory</td><td>topic-indexed lessons</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
                   <tr><td><strong class="hl">L3b</strong> Recall</td><td>cross-session search</td><td>auto-saved</td><td><span class="partial">◌ planned</span></td></tr>
                   <tr><td><strong class="hl">L3c</strong> Skills</td><td>procedural workflows</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
-                  <tr><td><strong class="hl">L4</strong> Hive</td><td>community skills</td><td>PR model</td><td><span class="partial">◌ planned</span></td></tr>
                   <tr><td><strong class="hl">L5</strong> Private</td><td>prefs, notes</td><td>user + agent</td><td><span class="partial">◌ planned</span></td></tr>
                   <tr><td><strong class="hl">L6</strong> Workspace</td><td>uploads, findings</td><td>user + agent</td><td><span class="check">● shipped</span></td></tr>
                 </tbody>
               </table>
-              <p style="font-size: 10.5pt; color: var(--text-dim); margin-top: 10px; line-height: 1.45;">// lower layers system-managed. upper layers emerge from use. <span class="hl">ingested once, indexed many ways, accessible everywhere.</span></p>
+              <p style="font-size: 10.5pt; color: var(--text-dim); margin-top: 10px; line-height: 1.45;">// system layers ingest &amp; index. user layers emerge from use. <span class="hl">ingested once, indexed many ways, accessible everywhere.</span></p>
             </div>
           </div>
         </div>
