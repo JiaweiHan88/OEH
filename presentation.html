@@ -25,8 +25,8 @@
       <section id="title">
         <p class="title-prompt">[<span class="hl">oeh</span>] ~ <span class="hl">./init</span> --pitch --audience=eng</p>
         <h1>Engineering<br>knowledge<br>that <span class="hl">compounds.</span></h1>
-        <p class="title-tagline">A multilayer knowledge platform with <span class="hl">self-learning AI agents</span> for engineering teams.</p>
-        <p class="title-sub">OpenEngineeringHub consolidates Jira, Confluence, GitHub, Gerrit,<br>Codebeamer and more into task-scoped workspaces with<br>specialized agents — every answer grounded, every claim cited.</p>
+        <p class="title-tagline">A multilayer knowledge platform with <span class="hl">self-learning AI agents</span></p>
+        <p class="title-sub">OpenEngineeringHub consolidates Enterprise tool landscape into task-scoped workspaces with specialized agents — every answer grounded, every claim cited.</p>
         <a href="design_update/OEH%20Prototype.html" target="_blank" style="display: inline-block; margin-top: 14px; padding: 8px 20px; font-family: var(--mono-font); font-size: 11pt; color: var(--accent); border: 1px solid var(--accent); text-decoration: none; letter-spacing: 0.5px; transition: background 0.2s, color 0.2s;">▶ launch prototype</a>
         <p class="slide-id">open_engineering_hub // <span class="hl">01</span></p>
       </section>
@@ -37,7 +37,7 @@
       <section id="pain" data-kicker="slide_01 // the_pain">
         <h2>Knowledge evaporates. Every day. At scale.</h2>
         <div class="content">
-          <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 14px;">Engineering teams in large enterprises suffer a compounding fragmentation problem existing tools don't solve.</p>
+          <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 14px;">Engineering teams in large enterprises suffer a compounding fragmentation problem.</p>
 
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;">
             <div class="feature-card" style="padding: 14px 18px;">
@@ -63,7 +63,8 @@
           </div>
 
           <blockquote style="margin: 0;">
-            <p style="font-size: 16pt;">This isn't a tab-switching problem. It isn't a chatbot problem. It's a <strong>knowledge architecture</strong> problem — and no existing tool solves it.</p>
+            <p style="font-size: 16pt;">This isn't a tab-switching problem. It isn't a chatbot problem. <br> 
+              It's a <strong>knowledge architecture</strong> problem — and no existing tool solves it.</p>
           </blockquote>
         </div>
         <p class="slide-id">the_pain // <span class="hl">02</span></p>
@@ -84,48 +85,22 @@
       <section id="architecture" data-kicker="slide_02 // 6_layer_knowledge">
         <h2>The solution: a 6-layer knowledge architecture</h2>
         <div class="content">
-          <div style="display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: stretch;">
-            <pre class="ascii-diagram" style="margin: 0; font-size: 9.5pt; padding: 12px 14px; line-height: 1.3; display: flex; flex-direction: column; justify-content: center;">
- <span style="color: var(--text-muted); font-size: 8.5pt;">  ▲ system-managed</span>
-┌─────────────────────────┐
-│ <span class="hl">L1</span>  Raw Artifacts        │
-│     Jira·Conf·GH·Gerrit │
-├─────────────────────────┤
-│ <span class="hl">L2</span>  Knowledge Store      │
-│     vec · BM25 · graph  │
-╞═════════════════════════╡
-│ <span class="hl">L4</span>  Shared Hive          │
-├─────────────────────────┤
-│ <span class="hl">L3</span>  Agent Memory         │
-│  ├ L3a  topic wiki      │
-│  ├ L3b  recall          │
-│  └ L3c  procedural      │
-├─────────────────────────┤
-│ <span class="hl">L5</span>  User Private         │
-├─────────────────────────┤
-│ <span class="hl">L6</span>  Workspace            │
-└─────────────────────────┘
- <span style="color: var(--text-muted); font-size: 8.5pt;">  ▼ user-managed</span></pre>
-            <div style="display: flex; flex-direction: column;">
-              <p class="kicker" style="margin-bottom: 6px;">// each layer :: holds · writer · status</p>
-              <table style="font-size: 10.5pt; flex: 1;">
+              <table style="font-size: 11pt; width: 100%;">
                 <thead><tr><th>Layer</th><th>Holds</th><th>Writer</th><th>Status</th></tr></thead>
                 <tbody>
-                  <tr style="border-bottom: 1px solid var(--line-strong);"><td colspan="4" style="font-size: 9pt; color: var(--text-muted); padding: 2px 0; letter-spacing: 0.5px;">// SYSTEM-MANAGED</td></tr>
+                  <tr style="border-bottom: 1px solid var(--line-strong);"><td colspan="4" style="font-size: 8.5pt; color: var(--text-muted); padding: 1px 0; letter-spacing: 0.5px;">// SYSTEM-MANAGED</td></tr>
                   <tr><td><strong class="hl">L1</strong> Raw</td><td>tickets, pages, PRs, CLs</td><td>connectors</td><td><span class="check">● shipped</span></td></tr>
                   <tr><td><strong class="hl">L2</strong> Store</td><td>keyword · semantic · graph</td><td>embed pipe</td><td><span class="check">●</span> <span class="partial">◐</span></td></tr>
-                  <tr style="border-bottom: 1px solid var(--line-strong);"><td colspan="4" style="font-size: 9pt; color: var(--text-muted); padding: 2px 0; letter-spacing: 0.5px;">// USER-MANAGED</td></tr>
-                  <tr><td><strong class="hl">L4</strong> Hive</td><td>community skills</td><td>PR model</td><td><span class="partial">◌ planned</span></td></tr>
-                  <tr><td><strong class="hl">L3a</strong> Memory</td><td>topic-indexed lessons</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
-                  <tr><td><strong class="hl">L3b</strong> Recall</td><td>cross-session search</td><td>auto-saved</td><td><span class="partial">◌ planned</span></td></tr>
-                  <tr><td><strong class="hl">L3c</strong> Skills</td><td>procedural workflows</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L3</strong> Hive</td><td>community skills</td><td>PR model</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr style="border-bottom: 1px solid var(--line-strong);"><td colspan="4" style="font-size: 8.5pt; color: var(--text-muted); padding: 1px 0; letter-spacing: 0.5px;">// USER-MANAGED</td></tr>
+                  <tr><td><strong class="hl">L4a</strong> Memory</td><td>topic-indexed lessons</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L4b</strong> Recall</td><td>cross-session search</td><td>auto-saved</td><td><span class="partial">◌ planned</span></td></tr>
+                  <tr><td><strong class="hl">L4c</strong> Skills</td><td>procedural workflows</td><td>agent (self)</td><td><span class="partial">◌ planned</span></td></tr>
                   <tr><td><strong class="hl">L5</strong> Private</td><td>prefs, notes</td><td>user + agent</td><td><span class="partial">◌ planned</span></td></tr>
                   <tr><td><strong class="hl">L6</strong> Workspace</td><td>uploads, findings</td><td>user + agent</td><td><span class="check">● shipped</span></td></tr>
                 </tbody>
               </table>
-              <p style="font-size: 10.5pt; color: var(--text-dim); margin-top: 10px; line-height: 1.45;">// system layers ingest &amp; index. user layers emerge from use. <span class="hl">ingested once, indexed many ways, accessible everywhere.</span></p>
-            </div>
-          </div>
+              <p style="font-size: 10pt; color: var(--text-dim); margin-top: 8px; line-height: 1.4;">// system layers ingest &amp; index. user layers emerge from use. <span class="hl">ingested once, indexed many ways, accessible everywhere.</span></p>
         </div>
         <p class="slide-id">6_layer // <span class="hl">04</span></p>
       </section>
@@ -136,11 +111,11 @@
       <section id="retrieval" data-kicker="slide_03 // breakthrough_1">
         <h2>Breakthrough #1 — multi-strategy retrieval</h2>
         <div class="content">
-          <p class="text-lg" style="color: var(--text-dim); margin-bottom: 18px;">A single retrieval strategy always fails at something. OEH runs three — in parallel — and fuses the results.</p>
+          <p class="text-lg" style="color: var(--text-dim); margin-bottom: 18px;">A single retrieval strategy always fails at something. <br> OEH runs three — in parallel — and fuses the results.</p>
 
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
-            <div class="feature-card">
-              <p class="kicker-accent">// [ keyword ]</p>
+            <div class="feature-card" style="border-left: 2px solid var(--text);">
+              <p class="kicker-accent" style="color: var(--text);">// [ keyword ]</p>
               <h3>PostgreSQL BM25</h3>
               <p style="margin-bottom: 8px;">Error codes, identifiers, exact terms.</p>
               <p style="font-size: 11pt; color: var(--text-muted); margin: 0;">> find error 0xDEAD in all Jira tickets</p>
@@ -182,30 +157,30 @@
         <div class="content">
           <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 12px;">The agents are <strong>not stateless chatbots</strong>. They learn. They remember. They get smarter.</p>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div>
-              <p class="kicker-accent" style="margin-bottom: 6px !important;">// L3a :: agent memory</p>
-              <h3 style="margin: 0 0 8px;">Topic-indexed knowledge base</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch;">
+            <div class="agent-card" style="border-left-color: var(--accent); padding: 12px 16px; margin: 0; display: flex; flex-direction: column;">
+              <p class="kicker-accent" style="margin-bottom: 4px !important;">// L4a :: agent memory</p>
+              <h3 style="font-size: 14pt; margin: 0 0 8px;">Topic-indexed knowledge base</h3>
               <pre class="ascii-diagram" style="font-size: 9.5pt; margin-bottom: 8px; padding: 10px 12px; line-height: 1.3;">defect_analysis/ <span class="dim">(user: lena)</span>
 ├── <span class="hl">_index.md</span>              <span class="dim">← always in ctx</span>
 ├── vhal-binder-patterns.md
 ├── dlt-log-parsing-lessons.md
 └── common-aaos-failure-modes.md</pre>
               <ul style="font-size: 11.5pt; margin: 0;">
-                <li><strong>Always-loaded index</strong> — compact overview every turn</li>
+                <li><strong>Always-loaded index</strong> — compact overview</li>
                 <li><strong>On-demand topics</strong> — loaded when task matches</li>
-                <li><strong>Self-managed</strong> — agent writes, merges, archives</li>
-                <li><strong>Deterministic</strong> — no lossy LLM summarization; <code>[CONFLICT]</code> tags</li>
+                <li><strong>Self-managed</strong> — agents create, update, archive</li>
+                <li><strong>Deterministic</strong> — no lossy LLM summarization</li>
               </ul>
             </div>
-            <div>
-              <div class="agent-card" style="border-left-color: var(--success); padding: 12px 16px;">
-                <p class="kicker-accent" style="color: var(--success); margin-bottom: 4px !important;">// L3b :: cross-session recall</p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div class="agent-card" style="border-left-color: var(--success); padding: 12px 16px; margin: 0; flex: 1;">
+                <p class="kicker-accent" style="color: var(--success); margin-bottom: 4px !important;">// L4b :: cross-session recall</p>
                 <h3 style="font-size: 14pt;">Full-text search across past conversations</h3>
                 <p style="font-size: 11.5pt;">"Last time we looked at VHAL issues, root cause was always in the binder transaction layer."</p>
               </div>
-              <div class="agent-card" style="border-left-color: var(--iris); margin-top: 8px; padding: 12px 16px;">
-                <p class="kicker-accent" style="color: var(--iris); margin-bottom: 4px !important;">// L3c :: procedural skills</p>
+              <div class="agent-card" style="border-left-color: var(--iris); padding: 12px 16px; margin: 0; flex: 1;">
+                <p class="kicker-accent" style="color: var(--iris); margin-bottom: 4px !important;">// L4c :: procedural skills</p>
                 <h3 style="font-size: 14pt;">Reusable workflows from experience</h3>
                 <pre style="margin: 6px 0 0; font-size: 9.5pt; padding: 0; background: transparent; border: none; color: var(--text-2); line-height: 1.4;">skill: <span class="hl">DLT-VHAL-Triage</span>
 trigger: VHAL defect + DLT log
@@ -232,14 +207,14 @@ steps:
           <p class="text-lg" style="color: var(--text-dim); margin-bottom: 16px;">Individual learning is powerful. <strong>Shared learning is transformative.</strong> The Hive turns individual agent skills into organizational knowledge via a community PR model.</p>
 
           <div style="display: flex; gap: 6px; align-items: stretch; justify-content: space-between; margin-bottom: 22px;">
-            <div class="flow-node" style="border-left-color: var(--text-muted);">
-              <p class="flow-label" style="color: var(--text-dim);">DRAFT</p>
+            <div class="flow-node" style="border-left-color: var(--text);">
+              <p class="flow-label" style="color: var(--text);">DRAFT</p>
               <p class="flow-desc">agent discovers</p>
             </div>
             <span class="flow-arrow">──▸</span>
             <div class="flow-node" style="border-left-color: var(--accent);">
               <p class="flow-label">PRIVATE</p>
-              <p class="flow-desc">L3c skill</p>
+              <p class="flow-desc">L4c skill</p>
             </div>
             <span class="flow-arrow">──▸</span>
             <div class="flow-node" style="border-left-color: var(--iris);">
@@ -259,8 +234,8 @@ steps:
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px;">
-            <div class="feature-card">
-              <p class="kicker-accent">// gate_01</p>
+            <div class="feature-card" style="border-left: 2px solid var(--text);">
+              <p class="kicker-accent" style="color: var(--text);">// gate_01</p>
               <h3>Privacy scanning</h3>
               <p>Regex-based credential &amp; PII detection before publish.</p>
             </div>
@@ -307,13 +282,13 @@ steps:
               <tbody>
                 <tr><td class="hl"><strong>01</strong></td><td>Lena opens Defect Analysis agent with a Jira ticket</td><td><span class="hl">L1</span></td></tr>
                 <tr><td class="hl"><strong>02</strong></td><td>Agent retrieves related specs, past analyses, reqs</td><td><span class="hl">L2</span></td></tr>
-                <tr><td class="hl"><strong>03</strong></td><td>Recalls: "last 3 VHAL crashes were binder-related"</td><td><span class="hl">L3a</span></td></tr>
-                <tr><td class="hl"><strong>04</strong></td><td>Applies <code>DLT-VHAL-Triage</code> skill automatically</td><td><span class="hl">L3c</span></td></tr>
+                <tr><td class="hl"><strong>03</strong></td><td>Recalls: "last 3 VHAL crashes were binder-related"</td><td><span class="hl">L4a</span></td></tr>
+                <tr><td class="hl"><strong>04</strong></td><td>Applies <code>DLT-VHAL-Triage</code> skill automatically</td><td><span class="hl">L4c</span></td></tr>
                 <tr><td class="hl"><strong>05</strong></td><td>Parses DLT log, x-references known failure modes</td><td><span class="hl">L1</span></td></tr>
                 <tr><td class="hl"><strong>06</strong></td><td>Root cause: binder deadlock in VHAL during cold boot</td><td><em>cited</em></td></tr>
                 <tr><td class="hl"><strong>07</strong></td><td>Proposes Jira comment with the analysis</td><td><em>HITL</em></td></tr>
-                <tr><td class="hl"><strong>08</strong></td><td>Lesson learned written to agent memory</td><td><span class="hl">L3a</span></td></tr>
-                <tr><td class="hl"><strong>09</strong></td><td>Lena promotes the triage skill to the Hive</td><td><span class="hl">L4</span></td></tr>
+                <tr><td class="hl"><strong>08</strong></td><td>Lesson learned written to agent memory</td><td><span class="hl">L4a</span></td></tr>
+                <tr><td class="hl"><strong>09</strong></td><td>Lena promotes the triage skill to the Hive</td><td><span class="hl">L3</span></td></tr>
               </tbody>
             </table>
             <div>
@@ -342,7 +317,7 @@ steps:
       <section id="agents" data-kicker="slide_07 // specialized_agents">
         <h2>Purpose-built agents — create, share, extend</h2>
         <div class="content">
-          <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 14px;">Every agent consumes the same 6-layer architecture. Users can create, configure and share agents — this is just the starting set.</p>
+          <p style="font-size: 14pt; color: var(--text-dim); margin-bottom: 14px;">Every agent consumes the same 6-layer architecture. Users can create, configure and share agent</p>
 
           <table style="margin-bottom: 18px;">
             <thead>
@@ -357,40 +332,40 @@ steps:
               <tr>
                 <td><strong class="hl">Contextual Companion</strong></td>
                 <td>Chat grounded in workspace data with inline citations</td>
-                <td><code>L1 L2 L3a L5 L6</code></td>
+                <td><code>L1 L2 L4a L5 L6</code></td>
                 <td><span class="status-pill status-shipped">shipped</span></td>
               </tr>
               <tr>
                 <td><strong class="hl">Defect Analysis</strong></td>
                 <td>Root-cause triage across tickets, specs, logs, history</td>
-                <td><code>L1 L2 L3a L3c L4</code></td>
+                <td><code>L1 L2 L3 L4a L4c</code></td>
                 <td><span class="status-pill status-progress">wave 3</span></td>
               </tr>
               <tr>
                 <td><strong class="hl">Code Review</strong></td>
                 <td>Reviews PRs/CLs with full requirement + architecture context</td>
-                <td><code>L1 L2 L3a L4 L6</code></td>
+                <td><code>L1 L2 L3 L4a L6</code></td>
                 <td><span class="status-pill status-shipped">shipped</span></td>
               </tr>
               <tr>
                 <td><strong class="hl">PO Analytics</strong></td>
                 <td>Natural-language Jira analytics: time-in-state, ping-pong</td>
-                <td><code>L1 L2 L3a</code></td>
+                <td><code>L1 L2 L4a</code></td>
                 <td><span class="status-pill status-progress">wave 3</span></td>
               </tr>
               <tr>
                 <td><strong class="hl">Test Agent</strong></td>
                 <td>Creates and maintains test cases from requirements and code changes</td>
-                <td><code>L1 L2 L3a L4 L6</code></td>
+                <td><code>L1 L2 L3 L4a L6</code></td>
                 <td><span class="status-pill status-progress">wave 3</span></td>
               </tr>
             </tbody>
           </table>
 
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; font-size: 11.5pt;">
-            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--accent);"><strong class="hl">// grounded.</strong> &nbsp;Every response cites sources inline. No hallucination.</p>
-            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--iris);"><strong class="iris">// configurable.</strong> &nbsp;Mind-map tool UI. Risk tiers. Admin constraints.</p>
-            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--warn);"><strong class="warn">// write-back.</strong> &nbsp;Jira · Confluence · GitHub · Gerrit — with HITL.</p>
+            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--accent);"><strong class="hl">// grounded.</strong> <br>Every response cites sources. <br>No hallucination.</p>
+            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--iris);"><strong class="iris">// configurable.</strong> <br>Mind-map tool UI. Risk tiers. <br>Admin constraints.</p>
+            <p style="margin: 0; padding: 10px 14px; background: var(--surface); border-left: 2px solid var(--warn);"><strong class="warn">// write-back.</strong> <br>Jira · Confluence · GitHub · <br>Gerrit — with HITL.</p>
           </div>
         </div>
         <p class="slide-id">agents // <span class="hl">10</span></p>
@@ -468,10 +443,10 @@ steps:
           <table style="font-size: 11pt;">
             <thead>
               <tr>
-                <th style="width: 24%;">Capability</th>
-                <th style="width: 24%;">Generic RAG Chatbots</th>
-                <th style="width: 24%;">IDE Copilots</th>
-                <th style="width: 28%;">OpenEngineeringHub</th>
+                <th style="width: 22%;">Capability</th>
+                <th style="width: 22%;">Generic RAG Chatbots</th>
+                <th style="width: 22%;">IDE Copilots</th>
+                <th style="width: 34%;">OpenEngineeringHub</th>
               </tr>
             </thead>
             <tbody>
@@ -531,7 +506,7 @@ steps:
               </tr>
             </tbody>
           </table>
-          <p style="font-size: 12pt; color: var(--text-dim); margin-top: 12px; padding: 10px 14px; border-left: 2px solid var(--accent); background: var(--accent-soft);">// <strong style="color: var(--text);">We don't compete on speed-to-setup or language breadth.</strong> We compete on <span class="hl">compounding knowledge</span>, <span class="hl">organizational memory</span>, and <span class="hl">deep multi-source integration</span>. Complementary, not competing.</p>
+          <p style="font-size: 12pt; color: var(--text-dim); margin-top: 12px; padding: 10px 14px; border-left: 2px solid var(--accent); background: var(--accent-soft);">// <strong style="color: var(--text);">We don't compete on speed-to-setup or language breadth.</strong> <br>We complement on <span class="hl">compounding knowledge</span>, <span class="hl">organizational memory</span>, and <span class="hl">deep multi-source integration</span>.</p>
         </div>
         <p class="slide-id">landscape // <span class="hl">12</span></p>
       </section>

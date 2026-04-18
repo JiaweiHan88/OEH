@@ -845,6 +845,9 @@
   font-feature-settings: "liga" 0, "calt" 0;
   font-kerning: none;
   tab-size: 4;
+  /* Force uniform box-drawing glyph widths */
+  -webkit-text-size-adjust: none;
+  text-rendering: geometricPrecision;
 }
 
 /* Inside ascii-diagram, only recolor — never change weight/size,
