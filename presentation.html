@@ -54,7 +54,7 @@
             <div class="feature-card" style="padding: 14px 18px;">
               <p class="kicker-accent" style="margin-bottom: 4px !important;">// problem_01</p>
               <h3>Disconnected systems</h3>
-              <p>Jira, Confluence, GitHub, Codebeamer etc.  
+              <p>Jira, Confluence, GitHub, and more.  
 Context lives everywhere and nowhere.</p>
             </div>
             <div class="feature-card" style="padding: 14px 18px;">
@@ -136,7 +136,7 @@ That's a <strong class="hl">architecture</strong> problem — and today's tools
               <p class="kicker-accent" style="color: var(--success);">// [ semantic ]</p>
               <h3>pgvector embeddings</h3>
               <p style="margin-bottom: 8px;">Conceptual similarity, natural language.</p>
-              <p style="font-size: 11pt; color: var(--text-muted); margin: 0;">> issues where display flickers on cold boot</p>
+              <p style="font-size: 11pt; color: var(--text-muted); margin: 0;">> issues where the screen flickers on startup</p>
             </div>
             <div class="feature-card" style="border-left: 2px solid var(--iris);">
               <p class="kicker-accent" style="color: var(--iris);">// [ graph ]</p>
@@ -175,9 +175,9 @@ That's a <strong class="hl">architecture</strong> problem — and today's tools
               <h3 style="font-size: 14pt; margin: 0 0 8px;">Topic-indexed knowledge base</h3>
               <pre class="ascii-diagram" style="font-size: 9.5pt; margin-bottom: 8px; padding: 10px 12px; line-height: 1.3;">defect_analysis/ <span class="dim">(user: lena)</span>
 ├── <span class="hl">_index.md</span>              <span class="dim">← always in ctx</span>
-├── vhal-binder-patterns.md
-├── dlt-log-parsing-lessons.md
-└── common-aaos-failure-modes.md</pre>
+├── crash-failure-patterns.md
+├── log-parsing-lessons.md
+└── common-failure-modes.md</pre>
               <ul style="font-size: 11.5pt; margin: 0;">
                 <li><strong>Always-loaded index</strong> — compact overview</li>
                 <li><strong>On-demand topics</strong> — loaded when task matches</li>
@@ -189,18 +189,18 @@ That's a <strong class="hl">architecture</strong> problem — and today's tools
               <div class="agent-card" style="border-left-color: var(--success); padding: 12px 16px; margin: 0; flex: 1;">
                 <p class="kicker-accent" style="color: var(--success); margin-bottom: 4px !important;">// L4b :: cross-session recall</p>
                 <h3 style="font-size: 14pt;">Full-text search across past conversations</h3>
-                <p style="font-size: 11.5pt;">"Last time we looked at VHAL issues, root cause was always in the binder transaction layer."</p>
+                <p style="font-size: 11.5pt;">"Last time we looked at these crashes, root cause was always in the transaction layer."</p>
               </div>
               <div class="agent-card" style="border-left-color: var(--iris); padding: 12px 16px; margin: 0; flex: 1;">
                 <p class="kicker-accent" style="color: var(--iris); margin-bottom: 4px !important;">// L4c :: procedural skills</p>
                 <h3 style="font-size: 14pt;">Reusable workflows from experience</h3>
-                <pre style="margin: 6px 0 0; font-size: 9.5pt; padding: 0; background: transparent; border: none; color: var(--text-2); line-height: 1.4;">skill: <span class="hl">DLT-VHAL-Triage</span>
-trigger: VHAL defect + DLT log
+                <pre style="margin: 6px 0 0; font-size: 9.5pt; padding: 0; background: transparent; border: none; color: var(--text-2); line-height: 1.4;">skill: <span class="hl">Crash-Triage</span>
+trigger: crash defect + log
 steps:
-  01. parse DLT for VHAL PIDs
+  01. parse log for error signatures
   02. filter err-level in 5s window
   03. x-ref known failure modes
-  04. check Codebeamer reqs
+  04. check linked requirements
   05. emit root-cause report</pre>
               </div>
             </div>
@@ -286,7 +286,7 @@ steps:
            SLIDE 6 — A DAY IN THE LIFE
            ======================================== -->
       <section id="day-in-life" data-kicker="slide_06 // day_in_life">
-        <h2>Lena triages a VHAL crash defect</h2>
+        <h2>Lena triages a recurring crash defect</h2>
         <div class="content">
           <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;">
             <table style="font-size: 10.5pt;">
@@ -294,10 +294,10 @@ steps:
               <tbody>
                 <tr><td class="hl"><strong>01</strong></td><td>Lena opens Defect Analysis agent with a Jira ticket</td><td><span class="hl">L1</span></td></tr>
                 <tr><td class="hl"><strong>02</strong></td><td>Agent retrieves related specs, past analyses, reqs</td><td><span class="hl">L2</span></td></tr>
-                <tr><td class="hl"><strong>03</strong></td><td>Recalls: "last 3 VHAL crashes were binder-related"</td><td><span class="hl">L4a</span></td></tr>
-                <tr><td class="hl"><strong>04</strong></td><td>Applies <code>DLT-VHAL-Triage</code> skill automatically</td><td><span class="hl">L4c</span></td></tr>
-                <tr><td class="hl"><strong>05</strong></td><td>Parses DLT log, x-references known failure modes</td><td><span class="hl">L1</span></td></tr>
-                <tr><td class="hl"><strong>06</strong></td><td>Root cause: binder deadlock in VHAL during cold boot</td><td><em>cited</em></td></tr>
+                <tr><td class="hl"><strong>03</strong></td><td>Recalls: "last 3 crashes traced to the same subsystem"</td><td><span class="hl">L4a</span></td></tr>
+                <tr><td class="hl"><strong>04</strong></td><td>Applies <code>Crash-Triage</code> skill automatically</td><td><span class="hl">L4c</span></td></tr>
+                <tr><td class="hl"><strong>05</strong></td><td>Parses the crash log, x-references known failure modes</td><td><span class="hl">L1</span></td></tr>
+                <tr><td class="hl"><strong>06</strong></td><td>Root cause: a deadlock in the same subsystem under load</td><td><em>cited</em></td></tr>
                 <tr><td class="hl"><strong>07</strong></td><td>Proposes Jira comment with the analysis</td><td><em>HITL</em></td></tr>
                 <tr><td class="hl"><strong>08</strong></td><td>Lesson learned written to agent memory</td><td><span class="hl">L4a</span></td></tr>
                 <tr><td class="hl"><strong>09</strong></td><td>Lena promotes the triage skill to the Hive</td><td><span class="hl">L3</span></td></tr>
@@ -377,81 +377,6 @@ steps:
         <p class="slide-id">agents // <span class="hl">10</span></p>
       </section>
 
-      <!-- ========================================
-           SLIDE 9 — COMPETITIVE LANDSCAPE
-           ======================================== -->
-      <section id="competitive" data-kicker="slide_09 // competitive_landscape">
-        <h2>Where OEH sits in the landscape</h2>
-        <div class="content">
-          <table style="font-size: 11pt;">
-            <thead>
-              <tr>
-                <th style="width: 22%;">Capability</th>
-                <th style="width: 22%;">Generic RAG Chatbots</th>
-                <th style="width: 22%;">IDE Copilots</th>
-                <th style="width: 34%;">OpenEngineeringHub</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Multi-source integration</td>
-                <td><span class="cross">✗</span> single source</td>
-                <td><span class="cross">✗</span> code only</td>
-                <td><span class="check">✓</span> 6+ systems · 95+ tools · extensible</td>
-              </tr>
-              <tr>
-                <td>Retrieval strategy</td>
-                <td>semantic only</td>
-                <td>keyword / AST</td>
-                <td><span class="check">✓</span> keyword + semantic + graph</td>
-              </tr>
-              <tr>
-                <td>Agent memory</td>
-                <td><span class="cross">✗</span> stateless</td>
-                <td><span class="cross">✗</span> stateless</td>
-                <td><span class="check">✓</span> persistent, self-managed</td>
-              </tr>
-              <tr>
-                <td>Knowledge sharing</td>
-                <td><span class="cross">✗</span> none</td>
-                <td><span class="cross">✗</span> none</td>
-                <td><span class="check">✓</span> Hive with PR model</td>
-              </tr>
-              <tr>
-                <td>Write-back actions</td>
-                <td><span class="cross">✗</span> read-only</td>
-                <td>code completion</td>
-                <td><span class="check">✓</span> Jira · Conf · GH · Gerrit</td>
-              </tr>
-              <tr>
-                <td>Domain-specific agents</td>
-                <td>generic chat</td>
-                <td>code completion</td>
-                <td><span class="check">✓</span> 5+ specialized agents</td>
-              </tr>
-              <tr>
-                <td>Source citations</td>
-                <td><span class="partial">◐</span> sometimes</td>
-                <td><em>n/a</em></td>
-                <td><span class="check">✓</span> always, inline, verifiable</td>
-              </tr>
-              <tr>
-                <td>Setup / time-to-value</td>
-                <td><span class="check">✓</span> minutes</td>
-                <td><span class="check">✓</span> minutes</td>
-                <td><span class="partial">◐</span> needs connector config</td>
-              </tr>
-              <tr>
-                <td>Language breadth</td>
-                <td><span class="check">✓</span> any</td>
-                <td><span class="check">✓</span> broad</td>
-                <td><span class="partial">◐</span> engineering-focused</td>
-              </tr>
-            </tbody>
-          </table>
-          <p style="font-size: 12pt; color: var(--text-dim); margin-top: 12px; padding: 10px 14px; border-left: 2px solid var(--accent); background: var(--accent-soft);">// <strong style="color: var(--text);">We don't compete on speed-to-setup or language breadth.</strong> <br>We complement on <span class="hl">compounding knowledge</span>, <span class="hl">organizational memory</span>, and <span class="hl">deep multi-source integration</span>.</p>
-        </div>
-        <p class="slide-id">landscape // <span class="hl">12</span></p>
       </section>
 
     </div>
